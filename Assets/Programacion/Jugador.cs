@@ -72,7 +72,7 @@ public class Jugador : MonoBehaviour
         }
 
     }
-
+    /*
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "ratita" && control.isGrounded)
@@ -94,4 +94,5 @@ public class Jugador : MonoBehaviour
             movimiento.y = movimiento.y + salto;
         }
     }
+    */
 }
