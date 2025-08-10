@@ -2,24 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Playables;
 
 public class Snake : MonoBehaviour
 {
     enum Direccion { Arriba, Derecha, Abajo, Izquierda }
-
     Direccion direccion = Direccion.Arriba;
-
     public List<Transform> tail;
     public float updateRate = .5f;
-    
     //public float stepRate;
 
     public GameObject tailPrefab;
-
     public Vector3 verticalLimits;
     public Vector3 horizontalLimits;
 
     [SerializeField] MenuInicial MenuInicial;
+    [SerializeField] private PlayableDirector pantallaplayableDirector;
 
     public int puntos = 0;
     public TMP_Text textPuntos;
@@ -123,6 +121,7 @@ public class Snake : MonoBehaviour
         {
             Debug.Log("waos");
             CancelInvoke();
+            pantallaplayableDirector.Play();
         }
     }
 

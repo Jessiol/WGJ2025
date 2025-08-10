@@ -906,6 +906,7 @@ GameObject:
   - component: {fileID: 1019665308}
   - component: {fileID: 1019665310}
   - component: {fileID: 1019665309}
+  - component: {fileID: 1019665311}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -945,7 +946,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.5882353}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -970,6 +971,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1019665307}
   m_CullTransparentMesh: 1
+--- !u!95 &1019665311
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019665307}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1133711711
 GameObject:
   m_ObjectHideFlags: 0
@@ -1028,6 +1050,57 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panelCreditos: {fileID: 0}
+--- !u!1 &1268151417
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1268151419}
+  - component: {fileID: 1268151418}
+  m_Layer: 0
+  m_Name: PanelPlayable
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!320 &1268151418
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1268151417}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 67687d1aa945b114bacb3be4111c0477, type: 2}
+  m_InitialState: 0
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: 2158165602527265997, guid: 67687d1aa945b114bacb3be4111c0477, type: 2}
+    value: {fileID: 1019665311}
+  m_ExposedReferences:
+    m_References: []
+--- !u!4 &1268151419
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1268151417}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.6459458, y: -2.1250398, z: 0.13292569}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1383723158
 GameObject:
   m_ObjectHideFlags: 0
@@ -1477,6 +1550,7 @@ MonoBehaviour:
   verticalLimits: {x: -6.88, y: 7, z: 0}
   horizontalLimits: {x: -14.4, y: 14.32, z: 0}
   MenuInicial: {fileID: 1133711714}
+  pantallaplayableDirector: {fileID: 1268151418}
   puntos: 0
   textPuntos: {fileID: 1588780423}
 --- !u!1 &1863998388
@@ -2094,3 +2168,4 @@ SceneRoots:
   - {fileID: 571779113}
   - {fileID: 1863998392}
   - {fileID: 280897709}
+  - {fileID: 1268151419}
