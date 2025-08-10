@@ -16,14 +16,18 @@ public class ParteUno : MonoBehaviour
         jugador = GetComponent<NavMeshAgent>();
         
     }
+    private void Update()
+    {
+        if (!jugador.pathPending && jugador.remainingDistance <= jugador.stoppingDistance){
+            gusano.SetBool("walk", false);
+        }
+    }
     public void puntoPeluche()
     {
         jugador.SetDestination(peluche.transform.position);
-        
-        while (jugador.isStopped == false)
-        {
-            gusano.SetBool("walk", true);
-        }
+        gusano.SetBool("walk", true);
+
+
     }
     public void puntoPanuelo()
     {
