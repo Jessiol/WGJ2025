@@ -13,6 +13,12 @@ public class MenuInicial : MonoBehaviour
         SceneManager.LoadScene("juegoSnake", LoadSceneMode.Single);
 
     }
+    public void IniciarRealLuego()
+    {
+        //controlAudio.Play();
+        SceneManager.LoadScene("Cuarto", LoadSceneMode.Single);
+
+    }
     public void AbrirMuestraCreditos()
     {
         //controlAudio.Play();
