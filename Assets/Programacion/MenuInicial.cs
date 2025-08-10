@@ -19,6 +19,13 @@ public class MenuInicial : MonoBehaviour
         SceneManager.LoadScene("Cuarto", LoadSceneMode.Single);
 
     }
+    public void CreditosFinales()
+    {
+        //controlAudio.Play();
+        SceneManager.LoadScene("CreditosFinales", LoadSceneMode.Single);
+
+    }
+
     public void AbrirMuestraCreditos()
     {
         //controlAudio.Play();

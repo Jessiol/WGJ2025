@@ -26,6 +26,8 @@ public class Snake : MonoBehaviour
     {
         textPuntos.text = puntos.ToString();
         InvokeRepeating("Move", 1, updateRate);
+
+        
     }
 
     void Update()
@@ -115,14 +117,22 @@ public class Snake : MonoBehaviour
         {
             Debug.Log("se acabó");
             CancelInvoke();
+            iniciarjuego();
 
         }
         else if (other.gameObject.tag == "Obsta")
         {
             Debug.Log("waos");
             CancelInvoke();
-            pantallaplayableDirector.Play();
+            iniciarjuego();
         }
+    }
+
+    public void iniciarjuego()
+    {
+        pantallaplayableDirector.Play();
+       
+
     }
 
 }
