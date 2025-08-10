@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class ParteUno : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameObject personaje;
+    public GameObject lugarPeluche, puntoGrd2;
 
-    // Update is called once per frame
-    void Update()
+    public float velocidad = 1f;
+    // Start is called before the first frame update
+    public void puntoPeluche()
     {
-        
+        //personaje.transform.position = new Vector3(lugarPeluche.transform.position);
+        Debug.Log("boton apretao");
+        personaje.transform.position = Vector3.MoveTowards(personaje.transform.position, lugarPeluche.transform.position, velocidad * Time.deltaTime);
     }
 }
