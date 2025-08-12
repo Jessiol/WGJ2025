@@ -18,54 +18,85 @@ public class Snake : MonoBehaviour
 
     [SerializeField] MenuInicial MenuInicial;
     [SerializeField] private PlayableDirector pantallaplayableDirector;
+    [SerializeField] private AudioSource controlAudio;
 
     public int puntos = 0;
     public TMP_Text textPuntos;
 
     void Start()
     {
-        textPuntos.text = puntos.ToString();
+        textPuntos.text = ("Puntuación: "+ puntos.ToString());
         InvokeRepeating("Move", 1, updateRate);
 
         
     }
 
+
+    public void arriba()
+    {
+        if (direccion != Direccion.Abajo)
+        {
+            direccion = Direccion.Arriba;
+        }
+    }
+
+    public void abajo()
+    {
+        if (direccion != Direccion.Arriba)
+        {
+            direccion = Direccion.Abajo;
+        }
+    }
+    public void derecha()
+    {
+        if (direccion != Direccion.Izquierda)
+        {
+            direccion = Direccion.Derecha;
+        }
+    }
+    public void izquierda()
+    {
+        if (direccion != Direccion.Derecha)
+        {
+            direccion = Direccion.Izquierda;
+        }
+    }
     void Update()
     {
-        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
-        {
-            //transform.Translate(Vector2.up * speed * Time.deltaTime);
-            if (direccion != Direccion.Abajo)
-            {
-                direccion = Direccion.Arriba;
-            }
-        }
+        //if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+        //{
+        //    //transform.Translate(Vector2.up * speed * Time.deltaTime);
+        //    if (direccion != Direccion.Abajo)
+        //    {
+        //        direccion = Direccion.Arriba;
+        //    }
+        //}
 
-        else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
-        {
-            //transform.Translate(Vector2.down * speed * Time.deltaTime);
-            if (direccion != Direccion.Arriba)
-            {
-                direccion = Direccion.Abajo;
-            }
-        }
-        else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
-        {
-            if (direccion != Direccion.Derecha)
-            {
-                direccion = Direccion.Izquierda;
-            }
-            // transform.Translate(Vector2.left * speed * Time.deltaTime);
-        }
+        //else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+        //{
+        //    //transform.Translate(Vector2.down * speed * Time.deltaTime);
+        //    if (direccion != Direccion.Arriba)
+        //    {
+        //        direccion = Direccion.Abajo;
+        //    }
+        //}
+        //else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        //{
+        //    if (direccion != Direccion.Derecha)
+        //    {
+        //        direccion = Direccion.Izquierda;
+        //    }
+        //    // transform.Translate(Vector2.left * speed * Time.deltaTime);
+        //}
 
-        else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
-        {
-            //transform.Translate(Vector2.right * speed * Time.deltaTime);
-            if (direccion != Direccion.Izquierda)
-            {
-                direccion = Direccion.Derecha;
-            }
-        }
+        //else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        //{
+        //    //transform.Translate(Vector2.right * speed * Time.deltaTime);
+        //    if (direccion != Direccion.Izquierda)
+        //    {
+        //        direccion = Direccion.Derecha;
+        //    }
+        //}
     }
 
     void Move()
@@ -108,7 +139,7 @@ public class Snake : MonoBehaviour
         if (other.gameObject.tag == "Manzanas")
         {
             puntos += 1;
-            textPuntos.text = puntos.ToString();
+            textPuntos.text = ("Puntuación: " + puntos.ToString());
             tail.Add(Instantiate(tailPrefab, tail[tail.Count - 1].position, Quaternion.identity).transform);
             other.transform.position = new Vector3(Random.Range(horizontalLimits.x, horizontalLimits.y), Random.Range(verticalLimits.x, verticalLimits.y));
             Debug.Log("cambio");
@@ -131,6 +162,7 @@ public class Snake : MonoBehaviour
     public void iniciarjuego()
     {
         pantallaplayableDirector.Play();
+        controlAudio.Stop();
        
 
     }
