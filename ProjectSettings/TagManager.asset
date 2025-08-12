@@ -11,6 +11,7 @@ TagManager:
   - peluche
   - gamuza
   - cactus
+  - escalera
   layers:
   - Default
   - TransparentFX

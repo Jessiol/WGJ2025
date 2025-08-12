@@ -8,11 +8,12 @@ public class ParteUno : MonoBehaviour
 {
     public Animator gusano;
     NavMeshAgent jugador;
-    public GameObject peluche, panuelo, cactus;
+    public GameObject peluche, panuelo, cactus, escalera;
     public bool uno, dos, tres = false;
     [SerializeField] MuestraDialogos dialogos;
     MenuInicial menus;
     [SerializeField] private PlayableDirector pantallaplayableDirector;
+    [SerializeField] private GameObject panelSiguienteNivel;
 
     public float velocidad = 1f;
 
@@ -30,7 +31,8 @@ public class ParteUno : MonoBehaviour
         }
         if(uno && dos && tres)
         {
-            pantallaplayableDirector.Play();
+            panelSiguienteNivel.SetActive(true);
+            
         }
         
     }
@@ -48,6 +50,11 @@ public class ParteUno : MonoBehaviour
     public void puntoCactus()
     {
         jugador.SetDestination(cactus.transform.position);
+        gusano.SetBool("walk", true);
+    }
+    public void puntoEscalera()
+    {
+        jugador.SetDestination(escalera.transform.position);
         gusano.SetBool("walk", true);
     }
     private void OnTriggerEnter(Collider other)
@@ -68,6 +75,9 @@ public class ParteUno : MonoBehaviour
                 tres = true;
                 dialogos.iniciarCorrutinaTexto("cactus");
                 Destroy(other.gameObject);
+                break;   
+            case "escalera":
+                pantallaplayableDirector.Play();
                 break;  
         }
     }

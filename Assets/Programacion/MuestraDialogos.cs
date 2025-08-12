@@ -17,6 +17,7 @@ public class MuestraDialogos : MonoBehaviour
     int CantidadAbiertas = 0;
     bool primeravez = false;
     string llave;
+    Narrativa2 narrativa;
     //public GuardarItems items;
     //AccesoEscenaFinal escenaFinal;
     //Tutorial tuto;
@@ -25,14 +26,17 @@ public class MuestraDialogos : MonoBehaviour
 
     Dictionary<string, string> dicDialogosLila = new Dictionary<string, string>()
     {
+        //ESCENA 2 OBJETOS
         {"peluche", "¡Oh! Esto es tan diferente a mi piel, se mueve cuando la rodeo con mi cuerpo."},
         {"cactus", "¡Auch! Duele…"},
-        {"gamuza", "¡Me gusta! Se siente diferente de un lado."}
+        {"gamuza", "¡Me gusta! Se siente diferente de un lado."},
+        //ESCENA 2 NARRATIVA
     };
 
 
     void Start()
     {
+        narrativa = GameObject.FindGameObjectWithTag("GameManager").GetComponent<Narrativa2>();
         //audioManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<AudioManager>();
         escribiendo = false;
     }
@@ -88,6 +92,11 @@ public class MuestraDialogos : MonoBehaviour
         textoAEscribir.text = "";
         panelDeTexto.SetActive(false);
         escribiendo = false;
+
+        if (llave == "cactus")
+        {
+            narrativa.mostrarPanelesExtras();
+        }
     }
 
 }
