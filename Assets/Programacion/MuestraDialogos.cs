@@ -30,6 +30,9 @@ public class MuestraDialogos : MonoBehaviour
         {"peluche", "¡Oh! Esto es tan diferente a mi piel, se mueve cuando la rodeo con mi cuerpo."},
         {"cactus", "¡Auch! Duele…"},
         {"gamuza", "¡Me gusta! Se siente diferente de un lado."},
+        {"flor", " ¡Guau! Huele muy rico, ¿se comen?"},
+        {"pajaro", "¡Qué hermoso! ¡Otra vez!"},
+        {"caca", "¡Agh! ¡Qué feo huele! Me arden los ojos."},
         //ESCENA 2 NARRATIVA
     };
 
@@ -94,6 +97,10 @@ public class MuestraDialogos : MonoBehaviour
         escribiendo = false;
 
         if (llave == "cactus")
+        {
+            narrativa.mostrarPanelesExtras();
+        }
+        if (llave == "pajaro")
         {
             narrativa.mostrarPanelesExtras();
         }

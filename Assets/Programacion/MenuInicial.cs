@@ -26,6 +26,19 @@ public class MenuInicial : MonoBehaviour
 
     }
 
+    public void goodE()
+    {
+        //controlAudio.Play();
+        panelCreditos.SetActive(true);
+
+    }
+    public void badE()
+    {
+        //controlAudio.Play();
+        SceneManager.LoadScene("CreditosFinales", LoadSceneMode.Single);
+
+    }
+
     public void AbrirMuestraCreditos()
     {
         //controlAudio.Play();

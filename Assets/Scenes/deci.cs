@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
-public class Creditosfinales : MonoBehaviour
+public class deci : MonoBehaviour
 {
     void OnEnable()
     {
-        SceneManager.LoadScene("Escena 3", LoadSceneMode.Single);
+        SceneManager.LoadScene("Decision", LoadSceneMode.Single);
 
     }
 }
